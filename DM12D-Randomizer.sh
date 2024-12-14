@@ -247,10 +247,10 @@ done
 setnrpn="sendmidi dev $device NRPN"
 
 # Return these values to their defaults or a specific value:
-$setnrpn 36 22    # 36	Pitch bend Up depth  (0-24)
-$setnrpn 37 22    # 37	Pitch bend Down depth  (0-24)
-$setnrpn 40 255   # 40	VCF Highpass Frequency  (0-255)
-$setnrpn 80 255   # 80 	VCA Level  (0-255)
+$setnrpn 36 46    # 36	Pitch bend Up depth  (0-48)
+$setnrpn 37 46    # 37	Pitch bend Down depth  (0-48)
+$setnrpn 40 0     # 40	VCF Highpass Frequency  (0-255)
+$setnrpn 80 255   # 80  VCA Level  (0-255)
 
 # Exit terminal
 osascript -e 'tell application "Terminal" to quit' &
