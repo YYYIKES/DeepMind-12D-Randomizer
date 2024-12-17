@@ -1,14 +1,62 @@
 #!/bin/bash
 
-# Behringer DeepMind 12D Randomizer
-# Project repository: https://github.com/YYYIKES/DeepMind-12D-Randomizer
+# ——————————————————————————————————————————————————————————— #
+#              Behringer DeepMind 12D Randomizer              #
+#                          by YYYIKES!                        #
+#                              ————                           #
+#      https://github.com/YYYIKES/DeepMind-12D-Randomizer     #
+# ——————————————————————————————————————————————————————————— #
 
-# This script will send randomized NRPN values to the Behringer DeepMind 12D via the SendMIDI commandline tool. Thanks to Geert Bevin for doing the hard work on the SendMIDI tool, which can be found here: https://github.com/gbevin/SendMIDI
 
-# The inline comments show the NRPR number, Parameter Name, and the min and max values of each parameter.
-# To return any parameters to their defaults (or specific value), add them to the relevant section toward the end of the script.
+# ABOUT:
+# 
+# This script sends randomized NRPN values to the Behringer DeepMind 12D 
+# via Geert Bevin's super useful [SendMIDI command line tool](https://github.com/gbevin/SendMIDI). It will probably also work on the DeepMind 12 Keyboard version. 
+#
+# Thanks to Geert Bevin for doing the hard work on SendMIDI,
+# which can be found here: https://github.com/gbevin/SendMIDI
 
-device="DeepMind12D"
+
+# REQUIREMENTS:
+# - SendMIDI command like tool
+# - I guess Homebrew
+# - I think that's it
+
+
+# USAGE:
+#
+# Double-clicking the .sh, or running `./DM12D-Randomizer.sh`
+# will randomize all parameters in every section.*
+#
+# To randomize specific sections use any or multiple 
+# of the following arguments:
+#   -o  =  Oscillators
+#   -f  =  VCF (Filter), VCF Envelopes, VCF Curves
+#   -a  =  VCA (Amp), VCA Envelopes, VCA Curves
+#   -m  =  Mods Sources, Destinations, Depths
+#   -v  =  Voicing, Polyphony, Portamento
+#   -r  =  Arpeggiator, Sequences
+#   -fx =  FX types, mix, levels, modes, parameters
+
+
+# * I have omitted the following from randomization to reduce
+#   the chance of silent patches, and retain default pitch bend
+#   settings: VCA Level (NRPN 80), VCF Highpass Frequency (NRPN 40), 
+#   Pitch bend Up (NPRN 36), and Pitch bend Down (NPRN 37). 
+#   These are defined in $ranges, so you can add the NRPN numbers 
+#   to the relevant $param_group if needed.
+
+# !! Use this at your own risk. I'm not a coder by trade.
+
+
+# ——————————————————————————————————————————————————————————— #
+
+
+# START OF SCRIPT
+
+
+# System name of your DeepMind midi device (mac defaults to 'Deepmind12D')
+device="Deepmind12D"
 
 # Create array of parameter maximum values
 ranges=(
@@ -48,8 +96,8 @@ ranges=(
   "255"  		# 33	Noise Level  (0-255)
   "255"  		# 34	Portamento Time  (0-255)
   "13"   		# 35	Portamento Mode  (0-13)
-  "24"  		# 36	Pitch bend Up depth  (0-24)  **RESET TO DEFAULT**
-  "24"  		# 37	Pitch bend Down depth  (0-24)
+  "24"  		# 36	Pitch bend Up depth  (0-46)  **RESET TO DEFAULT**
+  "24"  		# 37	Pitch bend Down depth  (0-46)
   "1"    		# 38	OSC 1 Pitch Mod Mode  (0-1)
   "255"  		# 39	VCF Frequency  (0-255)
   "255" 		# 40	VCF Highpass Frequency  (0-255)  **RESET TO DEFAULT**
@@ -237,21 +285,43 @@ ranges=(
   "2"    		# 222	FX Mode  (0-2)
 )
 
-# Loop through each NRPN parameter using a counter
-for (( nrpn=0; nrpn < ${#ranges[@]}; nrpn++ )); do
-  max="${ranges[$nrpn]}"
-  random_value=$((RANDOM % (max + 1)))
-  sendmidi dev $device NRPN "$nrpn" "$random_value"
-done
+# Define parameter groups as strings
+param_groups_lfo="0 1 2 3 4 5 6 7 8 9 10 11 12 13"
+param_groups_osc="14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 38 91 92"
+param_groups_vcf="39 41 42 43 44 45 46 47 48 49 50 51 52 62 63 64 65 66 67 68 69 70"
+param_groups_vca="53 54 55 56 57 58 59 60 61 81 82 83"
+param_groups_mod="71 72 73 74 75 76 77 78 79 93 94 95 96 97 98 99 100 101 102 103 104 105 106 107 108 109 110 111 112 113 114 115 116"
+param_groups_voice="34 35 84 85 86 87 88 89 90"
+param_groups_arp="117 118 119 120 121 122 123 124 125 126 127 128 129 130 131 132 133 134 135 136 137 138 139 140 141 142 143 144 145 146 147 148 149 150 151 152 153 154 155 156 157 158 159 160 161 162 163 164"
+param_groups_fx="165 166 167 168 169 170 171 172 173 174 175 176 177 178 179 180 181 182 183 184 185 186 187 188 189 190 191 192 193 194 195 196 197 198 199 200 201 202 203 204 205 206 207 208 209 210 211 212 213 214 215 216 217 218 219 220 221 222"
 
-setnrpn="sendmidi dev $device NRPN"
+# Helper function to randomize parameters
+randomize_params() {
+  local params=("$@")
+  for nrpn in "${params[@]}"; do
+      max="${ranges[$nrpn]}"
+      random_value=$((RANDOM % (max + 1)))
+      sendmidi dev "$device" NRPN "$nrpn" "$random_value"
+  done
+}
 
-# Return these values to their defaults or a specific value:
-$setnrpn 36 46    # 36	Pitch bend Up depth  (0-48)
-$setnrpn 37 46    # 37	Pitch bend Down depth  (0-48)
-$setnrpn 40 0     # 40	VCF Highpass Frequency  (0-255)
-$setnrpn 80 255   # 80  VCA Level  (0-255)
-
-# Exit terminal
-osascript -e 'tell application "Terminal" to quit' &
-exit
+# Check if any arguments were passed
+if [ $# -eq 0 ]; then
+  # If no arguments, randomize all parameters
+  randomize_params $(seq 0 $((${#ranges[@]}-1)))
+else
+  # If arguments, loop through them and randomize specified parameter groups
+  for arg in "$@"; do
+      case "$arg" in
+          -l) randomize_params $param_groups_lfo ;;
+          -o) randomize_params $param_groups_osc ;;
+          -f) randomize_params $param_groups_vcf ;;
+          -a) randomize_params $param_groups_vca ;;
+          -m) randomize_params $param_groups_mod ;;
+          -v) randomize_params $param_groups_voice ;;
+          -r) randomize_params $param_groups_arp ;;
+          -fx) randomize_params $param_groups_fx ;;
+          *) echo "Invalid argument: $arg" ;;
+      esac
+  done
+fi
