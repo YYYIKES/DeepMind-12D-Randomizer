@@ -1,24 +1,31 @@
 # DeepMind 12D Randomizer
 
-This bash script sends randomized NRPN values (within their min and max ranges) to the DeepMind 12D using the super useful SendMIDI command like tool
+This script sends randomized NRPN values to the Behringer DeepMind 12D via Geert Bevin's super useful [SendMIDI command line tool](https://github.com/gbevin/SendMIDI). It will probably also work on the DeepMind 12 Keyboard version. 
 
-Essentially, this script makes completely randomized patches, so some will be trash, and some might be interesting. The inline comments show the NRPR number, Parameter Name, and the min and max values of each parameter. To return any parameters to their defaults (or specific value), add them to the relevant section toward the end of the script. For example, currently the script will return the VCA Level and High Pass Filter to their defaults to reduce the likelihood of completely silent patches. So far I've made some interesting patches by running the randomizer, then kind-of dialing back the outrageous stuff until I like what I hear.
+Essentially, this script makes completely randomized patches, so some will be trash, and some might be interesting. Be aware that some randomizations may create loud patches and/or feedback loops.
+
+**!! Use this at your own risk. I'm not a coder by trade. !!**
 
 #### Requirements
-- [SendMIDI command like tool](https://github.com/gbevin/SendMIDI)
+- SendMIDI command like tool
 - I guess Homebrew
 - I think that's it
 
 #### Usage
-1. Download `DM12D-Randomizer.sh`
-2. Install SendMIDI according to the [instructions](https://github.com/gbevin/SendMIDI?tab=readme-ov-file#download), eg. via Homebrew by running `brew install gbevin/tools/sendmidi`
-3. Run `DM12D-Randomizer.sh` by double-clicking or via Terminal
+- Double-clicking the .sh, or running `./DM12D-Randomizer.sh` will randomize all parameters in every section*
+- To randomize specific sections use any or multiple of the following arguments:
+  - -o = Oscillators
+  - -f = VCF (Filter), VCF Envelopes, VCF Curves
+  - -a = VCA (Amp), VCA Envelopes, VCA Curves
+  - -m = Mods Sources, Destinations, Depths
+  - -v = Voicing, Polyphony, Portamento
+  - -r = Arpeggiator, Sequences
+  - -fx = FX types, mix, levels, modes, parameters
+ 
+For example, you could run `./DM12D-Randomizer.sh -l -m -fx` to randomize only the lfo, mod, and fx sections.
 
-#### Notes
-- Use this at your own risk. I'm not a coder by trade.
-- This will probably work for the DeepMind 12 keyboard model too.
-- If anyone has any suggestions to make the script more efficient let me know! I'm not a coder by trade.
+_* I have omitted the following from randomization to reduce the chance of silent patches, and retain default pitch bend settings: VCA Level (NRPN 80), VCF Highpass Frequency (NRPN 40), Pitch bend Up (NPRN 36), and Pitch bend Down (NPRN 37). These are defined in $ranges, so you can add the NRPN numbers to the relevant $param_group if needed._
 
-#### Thanks
-Thanks to Geert Bevin for doing the hard work with his SendMIDI tool.
+#### Recognition / Credits
+Many thanks to [Geert Bevin](https://github.com/gbevin) for doing the hard work on SendMIDI.
 
