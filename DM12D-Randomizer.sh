@@ -8,52 +8,61 @@
 #      https://github.com/YYYIKES/DeepMind-12D-Randomizer     #
 # ——————————————————————————————————————————————————————————— #
 
-
 # ABOUT:
 # 
-# This script sends randomized NRPN values to the Behringer DeepMind 12D 
-# via Geert Bevin's super useful [SendMIDI command line tool](https://github.com/gbevin/SendMIDI). It will probably also work on the DeepMind 12 Keyboard version. 
+# This script sends randomized NRPN values to the Behringer 
+# DeepMind 12D via Geert Bevin's super useful SendMIDI command 
+# line tool: https://github.com/gbevin/SendMIDI). 
+# It will probably also work on the DM12 Keyboard version.
 #
 # Thanks to Geert Bevin for doing the hard work on SendMIDI,
 # which can be found here: https://github.com/gbevin/SendMIDI
 
-
 # REQUIREMENTS:
-# - SendMIDI command like tool
+#
+# - SendMIDI command line tool
 # - I think that's it
-
 
 # USAGE:
 #
-# Double-clicking the .sh, or running `./DM12D-Randomizer.sh`
-# will randomize all parameters in every section.*
+# - Check the midi device name for the DeepMind in your OS. On mac it 
+#   defaults to "Deepmind 12D". If you've renamed yours, update line 59 
+#   with your one.
+# - Double-clicking the .sh will run a full randomization.*
+# - Alternatively, open Terminal and cd into the directory where 
+#   you saved the script (eg. `cd /path/to/script/location`), 
+#   then run `./DM12D-Randomizer.sh`. This will randomize all 
+#   parameters in every section.* To randomize specific sections, 
+#   use any or multiple of the following arguments:
+#     -o = Oscillators
+#     -f = VCF (Filter), VCF Envelopes, VCF Curves
+#     -a = VCA (Amp), VCA Envelopes, VCA Curves
+#     -m = Mods Sources, Destinations, Depths
+#     -v = Voicing, Polyphony, Portamento
+#     -r = Arpeggiator, Sequences
+#     -fx = FX types, mix, levels, modes, parameters
+
+# NOTES
 #
-# To randomize specific sections use any or multiple 
-# of the following arguments:
-#   -o  =  Oscillators
-#   -f  =  VCF (Filter), VCF Envelopes, VCF Curves
-#   -a  =  VCA (Amp), VCA Envelopes, VCA Curves
-#   -m  =  Mods Sources, Destinations, Depths
-#   -v  =  Voicing, Polyphony, Portamento
-#   -r  =  Arpeggiator, Sequences
-#   -fx =  FX types, mix, levels, modes, parameters
-
-
 # * I have omitted the following from randomization to reduce
 #   the chance of silent patches, and retain default pitch bend
 #   settings: VCA Level (NRPN 80), VCF Highpass Frequency (NRPN 40), 
 #   Pitch bend Up (NPRN 36), and Pitch bend Down (NPRN 37). 
 #   These are defined in $ranges, so you can add the NRPN numbers 
 #   to the relevant $param_group if needed.
+# - This script runs on macOS. I believe you can run it in Windows'
+#   PowerShell by invoking bash first, but I'm not familiar with Windows.
 
+
+# !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 # !! Use at your own risk. I'm not a real coder. I'm just some guy !!
+# !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
 
 # ——————————————————————————————————————————————————————————— #
 
 
 # START OF SCRIPT
-
 
 # System name of your DeepMind midi device (mac defaults to 'Deepmind12D')
 device="Deepmind12D"
