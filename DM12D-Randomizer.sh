@@ -3,6 +3,7 @@
 # ——————————————————————————————————————————————————————————— #
 #              Behringer DeepMind 12D Randomizer              #
 #                          by YYYIKES!                        #
+#                     yyyyyyyikes@gmail.com                   #
 #                              ————                           #
 #      https://github.com/YYYIKES/DeepMind-12D-Randomizer     #
 # ——————————————————————————————————————————————————————————— #
