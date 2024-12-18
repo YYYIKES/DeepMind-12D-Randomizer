@@ -20,7 +20,6 @@
 
 # REQUIREMENTS:
 # - SendMIDI command like tool
-# - I guess Homebrew
 # - I think that's it
 
 
