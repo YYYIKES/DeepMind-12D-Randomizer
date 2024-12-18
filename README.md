@@ -12,6 +12,7 @@ Essentially, this script makes completely randomized patches, so some will be tr
 - I think that's it
 
 #### Usage
+- Check the midi device name for the DeepMind in your OS. On mac it defaults to "DeepMind 12D". If you've renamed yours, update line 59 with your one.
 - Double-clicking the .sh, or running `./DM12D-Randomizer.sh` will randomize all parameters in every section*
 - To randomize specific sections use any or multiple of the following arguments:
   - -o = Oscillators
