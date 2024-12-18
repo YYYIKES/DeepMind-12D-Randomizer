@@ -46,7 +46,7 @@
 #   These are defined in $ranges, so you can add the NRPN numbers 
 #   to the relevant $param_group if needed.
 
-# !! Use this at your own risk. I'm not a coder by trade.
+# !! Use at your own risk. I'm not a real coder. I'm just some guy !!
 
 
 # ——————————————————————————————————————————————————————————— #
