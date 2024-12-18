@@ -7,7 +7,7 @@ Essentially, this script makes completely randomized patches, so some will be tr
 **!! Use this at your own risk. I'm not a real coder. I'm just some guy !!**
 
 #### Requirements
-- SendMIDI command like tool
+- SendMIDI command line tool
 - I think that's it
 
 #### Usage
@@ -25,6 +25,8 @@ Essentially, this script makes completely randomized patches, so some will be tr
 For example, you could run `./DM12D-Randomizer.sh -l -m -fx` to randomize only the lfo, mod, and fx sections.
 
 _* I have omitted the following from randomization to reduce the chance of silent patches, and retain default pitch bend settings: VCA Level (NRPN 80), VCF Highpass Frequency (NRPN 40), Pitch bend Up (NPRN 36), and Pitch bend Down (NPRN 37). These are defined in $ranges, so you can add the NRPN numbers to the relevant $param_group if needed._
+
+This script runs on macOS. I believe you can run it in Windows' PowerShell by invoking bash first, but I'm not familiar with Windows.
 
 #### Recognition / Credits
 Many thanks to [Geert Bevin](https://github.com/gbevin) for doing the hard work on SendMIDI.
