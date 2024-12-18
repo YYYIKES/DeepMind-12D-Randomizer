@@ -8,7 +8,6 @@ Essentially, this script makes completely randomized patches, so some will be tr
 
 #### Requirements
 - SendMIDI command like tool
-- I guess Homebrew
 - I think that's it
 
 #### Usage
