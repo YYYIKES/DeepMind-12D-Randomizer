@@ -7,7 +7,7 @@ Essentially, this script makes completely randomized patches, so some will be tr
 **!! Use this at your own risk. I'm not a real coder. I'm just some guy !!**
 
 #### Requirements:
-- SendMIDI command line tool
+- [SendMIDIl](https://github.com/gbevin/SendMIDI)
 - I think that's it
 
 #### Usage:
