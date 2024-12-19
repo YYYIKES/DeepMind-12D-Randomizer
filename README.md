@@ -6,12 +6,12 @@ Essentially, this script makes completely randomized patches, so some will be tr
 
 **!! Use this at your own risk. I'm not a real coder. I'm just some guy !!**
 
-#### Requirements
+#### Requirements:
 - SendMIDI command line tool
 - I think that's it
 
-#### Usage
-- Check the midi device name for the DeepMind in your OS. On mac it defaults to "Deepmind 12D". If you've renamed yours, update line 59 with your one.
+#### Usage:
+- Check the midi device name for the DeepMind in your OS. On mac it defaults to "Deepmind 12D". If you've renamed yours, update line 72 with your one.
 - Double-clicking the .sh will run a full randomization.*
 - Alternatively, open Terminal and cd into the directory where you saved the script (eg. `cd /path/to/script/location`), then run `./DM12D-Randomizer.sh`. This will randomize all parameters in every section.* To randomize specific sections, use any or multiple of the following arguments:
   - -o = Oscillators
@@ -24,10 +24,16 @@ Essentially, this script makes completely randomized patches, so some will be tr
  
 For example, you could run `./DM12D-Randomizer.sh -l -m -fx` to randomize only the lfo, mod, and fx sections.
 
-_* I have omitted the following from randomization to reduce the chance of silent patches, and retain default pitch bend settings: VCA Level (NRPN 80), VCF Highpass Frequency (NRPN 40), Pitch bend Up (NPRN 36), and Pitch bend Down (NPRN 37). These are defined in $ranges, so you can add the NRPN numbers to the relevant $param_group if needed._
+#### Notes:
+- I have omitted the following from randomization:
+    - VCA Level (NRPN 80): To reduce likelihood of silent patches. Instead this will be set to 255.
+    - VCA Highpass Freq (NRPN 40): Same reason as above. Instead the existing value will remain.
+    - VCA+VCF Envelope Velocity Sensitivities (NRPN 43, 82): To maintain playability. Instead the existing value will remain.
+    - Pitch bend Up+Down (NPRN 36, 37): Same as above. Instead the default values will remain.
+- You can remove these from the skip list and/or add/remove other parameters in the relevant section at the bottom of the code.
 
-This script runs on macOS. I believe you can run it in Windows' PowerShell by invoking bash first, but I'm not familiar with Windows.
+Enjoy!
 
-#### Recognition / Credits
+#### Recognition / Credits:
 Many thanks to [Geert Bevin](https://github.com/gbevin) for doing the hard work on SendMIDI.
 
