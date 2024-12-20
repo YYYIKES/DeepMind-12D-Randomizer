@@ -1,14 +1,14 @@
 #!/bin/bash
 
-# ——————————————————————————————————————————————————————————— #
+# =========================================================== #
 #              Behringer DeepMind 12D Randomizer              #
 #                          by YYYIKES!                        #
 #                     yyyyyyyikes@gmail.com                   #
 #                              ————                           #
 #      https://github.com/YYYIKES/DeepMind-12D-Randomizer     #
-# ——————————————————————————————————————————————————————————— #
+# =========================================================== #
 
-# ABOUT:
+# ABOUT: ———————————————————————————————————————————————————— #
 # 
 # This script sends randomized NRPN values to the Behringer 
 # DeepMind 12D via Geert Bevin's super useful SendMIDI command 
@@ -18,49 +18,55 @@
 # Thanks to Geert Bevin for doing the hard work on SendMIDI,
 # which can be found here: https://github.com/gbevin/SendMIDI
 
-# REQUIREMENTS:
+# REQUIREMENTS: ————————————————————————————————————————————— #
 #
 # - SendMIDI command line tool
 # - I think that's it
 
-# USAGE:
-#
-# - Check the midi device name for the DeepMind in your OS. On mac it 
-#   defaults to "Deepmind 12D". If you've renamed yours, update 
-#   line 72 with your one.
+# USAGE: ———————————————————————————————————————————————————— #
+# 
+# - Check the midi device name for the DeepMind in your OS. 
+#   On mac it defaults to "Deepmind 12D". If you've renamed yours, 
+#   update line 78 with your one.
 # - Double-clicking the .sh will run a full randomization.*
 # - Alternatively, open Terminal and cd into the directory where 
 #   you saved the script (eg. `cd /path/to/script/location`), 
 #   then run `./DM12D-Randomizer.sh`. This will randomize all 
 #   parameters in every section.* To randomize specific sections, 
 #   use any or multiple of the following arguments:
-#     -o = Oscillators
-#     -f = VCF (Filter), VCF Envelopes, VCF Curves
-#     -a = VCA (Amp), VCA Envelopes, VCA Curves
-#     -m = Mods Sources, Destinations, Depths
-#     -v = Voicing, Polyphony, Portamento
-#     -r = Arpeggiator, Sequences
+#     -osc = Oscillators
+#     -vca = VCA (Amp), VCA Envelopes, VCA Curves
+#     -vcf = VCF (Filter), VCF Envelopes, VCF Curves
+#     -env = VCA+VF+MOD Envelopes
+#     -arp = Arpeggiator, Sequencer
+#     -lfo = LFO section
 #     -fx = FX types, mix, levels, modes, parameters
+#     -mod = Mods Sources, Destinations, Depths
+#     -poly = Voicing, Polyphony, Portamento
+#   eg. `./DM12D-Randomizer.sh -mod -arp`
 
-# NOTES
+# NOTES: ———————————————————————————————————————————————————— #
 #
 # * I have omitted the following from randomization:
 #   - VCA Level (NRPN 80): 
-#         To reduce likelihood of silent patches. 
-#         Instead this will be set to 255.
+#     Reason: To reduce likelihood of silent patches. 
+#     Instead this will be set to 255.
 #   - VCA Highpass Freq (NRPN 40): 
-#         Same reason as above. 
-#         Instead the existing value will remain.
+#     Reason: To reduce likelihood of silent patches. 
+#     Instead the existing value will remain.
 #   - VCA+VCF Envelope Velocity Sensitivities (NRPN 43, 82): 
-#         To maintain playability. 
-#         Instead the existing value will remain.
+#     Reason: To maintain playability. 
+#     Instead the existing value will remain.
 #   - Pitch bend Up+Down (NPRN 36, 37): 
-#         To maintain playability. 
-#         Instead the default values will remain.
+#     Reason: To maintain playability. 
+#     Instead these will be set to -24, +24.
+#   You can remove these from the skip list and/or add/remove 
+#   other parameters in the relevant section toward the end 
+#   of the script.
 
-# !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-# !! Use at your own risk. I'm not a real coder. I'm just some guy !!
-# !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+# !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+# !!                  Use at your own risk                   !!
+# !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
 
 # ——————————————————————————————————————————————————————————— #
@@ -71,7 +77,7 @@
 # System name of your DeepMind midi device (mac defaults to 'Deepmind12D')
 device="Deepmind12D"
 
-# Create array of parameter maximum values
+# Create array of parameter maximum values in NRPN ascending order
 ranges=(
   "255"  		# 00	LFO 1 Rate  (0-255)
   "255"  		# 01	LFO 1 Delay  (0-255)
@@ -109,8 +115,8 @@ ranges=(
   "255"  		# 33	Noise Level  (0-255)
   "255"  		# 34	Portamento Time  (0-255)
   "13"   		# 35	Portamento Mode  (0-13)
-  "24"  		# 36	Pitch bend Up depth  (0-24, default 48)
-  "24"  		# 37	Pitch bend Down depth  (0-24, default 48)
+  "24"  		# 36	Pitch bend Up depth  (0-48, default 46)
+  "24"  		# 37	Pitch bend Down depth  (0-48, default 46)
   "1"    		# 38	OSC 1 Pitch Mod Mode  (0-1)
   "255"  		# 39	VCF Frequency  (0-255)
   "255" 		# 40	VCF Highpass Frequency  (0-255, default 0)
@@ -299,17 +305,18 @@ ranges=(
 )
 
 # Define parameter groups
-param_groups_lfo="0 1 2 3 4 5 6 7 8 9 10 11 12 13"
 param_groups_osc="14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 38 91 92"
-param_groups_vcf="39 41 42 43 44 45 46 47 48 49 50 51 52 62 63 64 65 66 67 68 69 70"
-param_groups_vca="53 54 55 56 57 58 59 60 61 81 82 83"
-param_groups_mod="71 72 73 74 75 76 77 78 79 93 94 95 96 97 98 99 100 101 102 103 104 105 106 107 108 109 110 111 112 113 114 115 116"
-param_groups_voice="34 35 84 85 86 87 88 89 90"
+param_groups_vca="53 54 55 56 57 58 59 60 61 80 81 82 83"
+param_groups_vcf="39 40 41 42 43 44 45 46 47 48 49 50 51 52 62 63 64 65 66 67 68 69 70"
+param_groups_env="53 54 55 56 57 58 59 60 61 62 63 64 65 66 67 68 69 70 71 72 73 74 75 76 77 78 79"
 param_groups_arp="117 118 119 120 121 122 123 124 125 126 127 128 129 130 131 132 133 134 135 136 137 138 139 140 141 142 143 144 145 146 147 148 149 150 151 152 153 154 155 156 157 158 159 160 161 162 163 164"
+param_groups_lfo="0 1 2 3 4 5 6 7 8 9 10 11 12 13"
 param_groups_fx="165 166 167 168 169 170 171 172 173 174 175 176 177 178 179 180 181 182 183 184 185 186 187 188 189 190 191 192 193 194 195 196 197 198 199 200 201 202 203 204 205 206 207 208 209 210 211 212 213 214 215 216 217 218 219 220 221 222"
+param_groups_mod="71 72 73 74 75 76 77 78 79 93 94 95 96 97 98 99 100 101 102 103 104 105 106 107 108 109 110 111 112 113 114 115 116"
+param_groups_poly="34 35 36 37 84 85 86 87 88 89 90 91 92"
 
 
-# Parameters to skip from randomization (NRPN numbers)
+# Parameters to skip from randomization
 params_to_skip=(
     36    # Pitch bend Up depth
     37    # Pitch bend Down depth
@@ -361,14 +368,15 @@ else
   # If arguments, loop through them and randomize specified parameter groups
   for arg in "$@"; do
       case "$arg" in
-          -l) randomize_params $param_groups_lfo ;;
-          -o) randomize_params $param_groups_osc ;;
-          -f) randomize_params $param_groups_vcf ;;
-          -a) randomize_params $param_groups_vca ;;
-          -m) randomize_params $param_groups_mod ;;
-          -v) randomize_params $param_groups_voice ;;
-          -r) randomize_params $param_groups_arp ;;
+          -osc) randomize_params $param_groups_osc ;;
+          -vca) randomize_params $param_groups_vca ;;
+          -vcf) randomize_params $param_groups_vcf ;;
+          -env) randomize_params $param_groups_env ;;
+          -arp) randomize_params $param_groups_arp ;;
+          -lfo) randomize_params $param_groups_lfo ;;
           -fx) randomize_params $param_groups_fx ;;
+          -mod) randomize_params $param_groups_mod ;;
+          -poly) randomize_params $param_groups_poly ;;
           *) echo "Invalid argument: $arg" ;;
       esac
   done
