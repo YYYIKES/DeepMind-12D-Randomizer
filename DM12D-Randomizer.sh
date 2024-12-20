@@ -363,9 +363,11 @@ randomize_params() {
 # Check if any arguments were passed
 if [ $# -eq 0 ]; then
   # If no arguments, randomize all parameters
+  echo "Randomizing. Please wait..."
   randomize_params $(seq 0 $((${#ranges[@]}-1)))
 else
   # If arguments, loop through them and randomize specified parameter groups
+  echo "Randomizing. Please wait..."
   for arg in "$@"; do
       case "$arg" in
           -osc) randomize_params $param_groups_osc ;;
@@ -381,3 +383,5 @@ else
       esac
   done
 fi
+
+echo "Done!"
