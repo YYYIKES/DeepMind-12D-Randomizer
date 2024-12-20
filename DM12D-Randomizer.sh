@@ -2,8 +2,8 @@
 
 # =========================================================== #
 #              Behringer DeepMind 12D Randomizer              #
-#                          by YYYIKES!                        #
-#                     yyyyyyyikes@gmail.com                   #
+#                            YYYIKES!                         #
+#                     ig: @whatisashcrook                     #
 #                              ————                           #
 #      https://github.com/YYYIKES/DeepMind-12D-Randomizer     #
 # =========================================================== #
