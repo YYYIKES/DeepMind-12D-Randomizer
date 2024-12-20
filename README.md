@@ -4,7 +4,7 @@ This script sends randomized NRPN values to the Behringer DeepMind 12D via Geert
 
 Essentially, this script makes completely randomized patches, so some will be trash, and some might be interesting. Be aware that some randomizations may create loud patches and/or feedback loops.
 
-**!! Use this at your own risk. I'm not a real coder. I'm just some guy !!**
+**!!!!!!!!! Use this at your own risk !!!!!!!!!**
 
 #### Requirements:
 - [SendMIDIl](https://github.com/gbevin/SendMIDI)
