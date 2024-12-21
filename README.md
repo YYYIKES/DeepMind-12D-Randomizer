@@ -11,7 +11,7 @@ Essentially, this script makes completely randomized patches, so some will be tr
 - I think that's it
 
 #### Usage:
-- Check the midi device name for the DeepMind in your OS. On mac it defaults to "Deepmind 12D". If you've renamed yours, update line 81 with your one.
+- Check the midi device name for the DeepMind in your OS. On mac it defaults to "Deepmind 12D". If you've renamed yours, update line 78 with your one.
 - Double-clicking the .sh will run a full randomization.*
 - Alternatively, open Terminal and cd into the directory where you saved the script (eg. `cd /path/to/script/location`), then run `./DM12D-Randomizer.sh`. This will randomize all parameters in every section.*
 - To randomize specific sections, use any or multiple of the following arguments:
@@ -34,13 +34,10 @@ For example, you could run `./DM12D-Randomizer.sh -lfo -mod -fx` to randomize on
     - Instead this will be set to 255.
   - VCA Highpass Freq (NRPN 40):
     - Reason: To reduce likelihood of silent patches.
-    - Instead these will be set to 0.
+    - Instead the existing value will remain.
   - VCA+VCF Envelope Velocity Sensitivities (NRPN 43, 82):
     - Reason: To maintain playability.
-    - Instead these will be set to 128.
-  - VCA Envelope Depth  (NRPN 42):
-    - Reason: To maintain playability.
-    - Instead this will be set to 255.
+    - Instead the existing value will remain.
   - Pitch bend Up+Down (NPRN 36, 37):
     - Reason: To maintain playability.
     - Instead these will be set to -24, +24.
