@@ -27,7 +27,7 @@
 # 
 # - Check the midi device name for the DeepMind in your OS. 
 #   On mac it defaults to "Deepmind 12D". If you've renamed yours, 
-#   update line 81 with your one.
+#   update line 78 with your one.
 # - Double-clicking the .sh will run a full randomization.*
 # - Alternatively, open Terminal and cd into the directory where 
 #   you saved the script (eg. `cd /path/to/script/location`), 
@@ -53,13 +53,10 @@
 #     Instead this will be set to 255.
 #   - VCA Highpass Freq (NRPN 40): 
 #     Reason: To reduce likelihood of silent patches. 
-#     Instead these will be set to 0.
+#     Instead the existing value will remain.
 #   - VCA+VCF Envelope Velocity Sensitivities (NRPN 43, 82): 
 #     Reason: To maintain playability. 
-#     Instead these will be set to 128.
-#   - VCA Envelope Depth  (NRPN 42): 
-#     Reason: To maintain playability. 
-#     Instead this will be set to 255.
+#     Instead the existing value will remain.
 #   - Pitch bend Up+Down (NPRN 36, 37): 
 #     Reason: To maintain playability. 
 #     Instead these will be set to -24, +24.
@@ -326,7 +323,6 @@ params_to_skip=(
     40    # VCF Highpass Frequency
     43    # VCF Envelope Velocity Sensitivity
     80    # VCA Level
-    81	  # VCF Envelope Depth
     82    # VCA Envelope Velocity Sensitivity
 )
 
@@ -348,16 +344,10 @@ randomize_params() {
             # Here you can add a value if a default value needs to be set
             if [ "$nrpn" -eq "36" ] || [ "$nrpn" -eq "37" ]
             then
-              sendmidi dev "$device" NRPN "$nrpn" "48"
-            elif [ "$nrpn" -eq "80" ] || [ "$nrpn" -eq "81" ]
+                 sendmidi dev "$device" NRPN "$nrpn" "48"
+            elif [ "$nrpn" -eq "80" ]
             then
-              sendmidi dev "$device" NRPN "$nrpn" "255"
-            elif [ "$nrpn" -eq "43" ] || [ "$nrpn" -eq "82" ]
-            then
-              sendmidi dev "$device" NRPN "$nrpn" "128"
-            elif [ "$nrpn" -eq "40" ]
-            then
-              sendmidi dev "$device" NRPN "$nrpn" "0"
+             sendmidi dev "$device" NRPN "$nrpn" "255"
             fi
           
             continue  # Skip to the next NRPN if it's in the skip list
