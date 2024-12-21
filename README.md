@@ -34,7 +34,7 @@ For example, you could run `./DM12D-Randomizer.sh -lfo -mod -fx` to randomize on
     - Instead this will be set to 255.
   - VCA Highpass Freq (NRPN 40):
     - Reason: To reduce likelihood of silent patches.
-    - Instead these will be set to 255.
+    - Instead these will be set to 0.
   - VCA+VCF Envelope Velocity Sensitivities (NRPN 43, 82):
     - Reason: To maintain playability.
     - Instead these will be set to 128.
