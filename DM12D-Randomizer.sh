@@ -349,7 +349,7 @@ randomize_params() {
             if [ "$nrpn" -eq "36" ] || [ "$nrpn" -eq "37" ]
             then
               sendmidi dev "$device" NRPN "$nrpn" "48"
-            elif [ "$nrpn" -eq "40" ] || [ "$nrpn" -eq "80" ]
+            elif [ "$nrpn" -eq "40" ] || [ "$nrpn" -eq "80" ] || [ "$nrpn" -eq "81" ]
             then
               sendmidi dev "$device" NRPN "$nrpn" "255"
             elif [ "$nrpn" -eq "43" ] || [ "$nrpn" -eq "82" ]
