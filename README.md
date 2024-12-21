@@ -29,22 +29,22 @@ For example, you could run `./DM12D-Randomizer.sh -lfo -mod -fx` to randomize on
 
 #### Notes:
 - *I have omitted the following from randomization:
-  - VCA Level (NRPN 80): 
-    - Reason: To reduce likelihood of silent patches. 
+  - VCA Level (NRPN 80):
+    - Reason: To reduce likelihood of silent patches.
     - Instead this will be set to 255.
-  - VCA Highpass Freq (NRPN 40): 
-    - Reason: To reduce likelihood of silent patches. 
-    - Instead the existing value will remain.
-  - VCA+VCF Envelope Velocity Sensitivities (NRPN 43, 82): 
-    - Reason: To maintain playability. 
-    - Instead the existing value will remain.
+  - VCA Highpass Freq (NRPN 40):
+    - Reason: To reduce likelihood of silent patches.
+    - Instead these will be set to 255.
+  - VCA+VCF Envelope Velocity Sensitivities (NRPN 43, 82):
+    - Reason: To maintain playability.
+    - Instead these will be set to 128.
   - VCA Envelope Depth  (NRPN 42):
-    - Reason: To maintain playability. 
+    - Reason: To maintain playability.
     - Instead this will be set to 255.
-  - Pitch bend Up+Down (NPRN 36, 37): 
-    - Reason: To maintain playability. 
+  - Pitch bend Up+Down (NPRN 36, 37):
+    - Reason: To maintain playability.
     - Instead these will be set to -24, +24.
-- You can remove these from the skip list and/or add/remove other parameters in the relevant section toward the end of the script.
+  - You can remove these from the skip list and/or add/remove other parameters in the relevant section toward the end of the script.
 
 Enjoy!
 
