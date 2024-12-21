@@ -38,6 +38,9 @@ For example, you could run `./DM12D-Randomizer.sh -lfo -mod -fx` to randomize on
   - VCA+VCF Envelope Velocity Sensitivities (NRPN 43, 82): 
     - Reason: To maintain playability. 
     - Instead the existing value will remain.
+  - VCA Envelope Depth  (NRPN 42):
+    - Reason: To maintain playability. 
+    - Instead this will be set to 255.
   - Pitch bend Up+Down (NPRN 36, 37): 
     - Reason: To maintain playability. 
     - Instead these will be set to -24, +24.
