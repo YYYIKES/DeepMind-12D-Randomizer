@@ -53,10 +53,10 @@
 #     Instead this will be set to 255.
 #   - VCA Highpass Freq (NRPN 40): 
 #     Reason: To reduce likelihood of silent patches. 
-#     Instead the existing value will remain.
+#     Instead these will be set to 255.
 #   - VCA+VCF Envelope Velocity Sensitivities (NRPN 43, 82): 
 #     Reason: To maintain playability. 
-#     Instead the existing value will remain.
+#     Instead these will be set to 128.
 #   - VCA Envelope Depth  (NRPN 42): 
 #     Reason: To maintain playability. 
 #     Instead this will be set to 255.
@@ -326,8 +326,8 @@ params_to_skip=(
     40    # VCF Highpass Frequency
     43    # VCF Envelope Velocity Sensitivity
     80    # VCA Level
+    81	  # VCF Envelope Depth
     82    # VCA Envelope Velocity Sensitivity
-    42	  # VCF Envelope Depth
 )
 
 # Helper function to randomize parameters
@@ -348,10 +348,13 @@ randomize_params() {
             # Here you can add a value if a default value needs to be set
             if [ "$nrpn" -eq "36" ] || [ "$nrpn" -eq "37" ]
             then
-                 sendmidi dev "$device" NRPN "$nrpn" "48"
-            elif [ "$nrpn" -eq "80" ] || [ "$nrpn" -eq "42" ]
+              sendmidi dev "$device" NRPN "$nrpn" "48"
+            elif [ "$nrpn" -eq "40" ] || [ "$nrpn" -eq "80" ]
             then
-             sendmidi dev "$device" NRPN "$nrpn" "255"
+              sendmidi dev "$device" NRPN "$nrpn" "255"
+            elif [ "$nrpn" -eq "43" ] || [ "$nrpn" -eq "82" ]
+            then
+              sendmidi dev "$device" NRPN "$nrpn" "128"
             fi
           
             continue  # Skip to the next NRPN if it's in the skip list
