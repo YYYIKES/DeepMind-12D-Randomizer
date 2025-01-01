@@ -47,19 +47,22 @@
 
 # NOTES: ———————————————————————————————————————————————————— #
 #
-# * I have omitted the following from randomization:
-#   - VCA Level (NRPN 80): 
-#     Reason: To reduce likelihood of silent patches. 
+# * I have omitted/limited the following from randomization:
+#   - VCA Level
 #     Instead this will be set to 255.
-#   - VCA Highpass Freq (NRPN 40): 
 #     Reason: To reduce likelihood of silent patches. 
+#   - VCA Highpass Freq
 #     Instead the existing value will remain.
-#   - VCA+VCF Envelope Velocity Sensitivities (NRPN 43, 82): 
-#     Reason: To maintain playability. 
+#     Reason: To reduce likelihood of silent patches. 
+#   - VCA+VCF Envelope Velocity Sensitivities
 #     Instead the existing value will remain.
-#   - Pitch bend Up+Down (NPRN 36, 37): 
 #     Reason: To maintain playability. 
+#   - Pitch bend Up+Down
 #     Instead these will be set to -24, +24.
+#     Reason: To maintain playability. 
+#   - FX Parameters and FX Output Gains
+#     Instead randomization will be limited max 100.
+#     Reason: To reduce extreme volume / mix settings.
 #   You can remove these from the skip list and/or add/remove 
 #   other parameters in the relevant section toward the end 
 #   of the script.
@@ -246,61 +249,61 @@ ranges=(
   "5"    		# 164	Arp Octaves  (0-5)
   "9"    		# 165	FX Routing  (0-9)
   "33"   		# 166	FX 1 Type  (0-33)
-  "255"  		# 167	FX 1 Params 1  (0-255)
-  "255"  		# 168	FX 1 Params 2  (0-255)
-  "255"  		# 169	FX 1 Params 3  (0-255)
-  "255"  		# 170	FX 1 Params 4  (0-255)
-  "255"  		# 171	FX 1 Params 5  (0-255)
-  "255"  		# 172	FX 1 Params 6  (0-255)
-  "255"  		# 173	FX 1 Params 7  (0-255)
-  "255"  		# 174	FX 1 Params 8  (0-255)
-  "255"  		# 175	FX 1 Params 9  (0-255)
-  "255"  		# 176	FX 1 Params 10  (0-255)
-  "255"  		# 177	FX 1 Params 11  (0-255)
-  "255"  		# 178	FX 1 Params 12  (0-255)
+  "100"  		# 167	FX 1 Params 1  (0-255)
+  "100"  		# 168	FX 1 Params 2  (0-255)
+  "100"  		# 169	FX 1 Params 3  (0-255)
+  "100"  		# 170	FX 1 Params 4  (0-255)
+  "100"  		# 171	FX 1 Params 5  (0-255)
+  "100"  		# 172	FX 1 Params 6  (0-255)
+  "100"  		# 173	FX 1 Params 7  (0-255)
+  "100"  		# 174	FX 1 Params 8  (0-255)
+  "100"  		# 175	FX 1 Params 9  (0-255)
+  "100"  		# 176	FX 1 Params 10  (0-255)
+  "100"  		# 177	FX 1 Params 11  (0-255)
+  "100"  		# 178	FX 1 Params 12  (0-255)
   "33"   		# 179	FX 2 Type  (0-33)
-  "255"  		# 180	FX 2 Params 1  (0-255)
-  "255"  		# 181	FX 2 Params 2  (0-255)
-  "255"  		# 182	FX 2 Params 3  (0-255)
-  "255"  		# 183	FX 2 Params 4  (0-255)
-  "255"  		# 184	FX 2 Params 5  (0-255)
-  "255"  		# 185	FX 2 Params 6  (0-255)
-  "255"  		# 186	FX 2 Params 7  (0-255)
-  "255"  		# 187	FX 2 Params 8  (0-255)
-  "255"  		# 188	FX 2 Params 9  (0-255)
-  "255"  		# 189	FX 2 Params 10  (0-255)
-  "255"  		# 190	FX 2 Params 11  (0-255)
-  "255"  		# 191	FX 2 Params 12  (0-255)
+  "100"  		# 180	FX 2 Params 1  (0-255)
+  "100"  		# 181	FX 2 Params 2  (0-255)
+  "100"  		# 182	FX 2 Params 3  (0-255)
+  "100"  		# 183	FX 2 Params 4  (0-255)
+  "100"  		# 184	FX 2 Params 5  (0-255)
+  "100"  		# 185	FX 2 Params 6  (0-255)
+  "100"  		# 186	FX 2 Params 7  (0-255)
+  "100"  		# 187	FX 2 Params 8  (0-255)
+  "100"  		# 188	FX 2 Params 9  (0-255)
+  "100"  		# 189	FX 2 Params 10  (0-255)
+  "100"  		# 190	FX 2 Params 11  (0-255)
+  "100"  		# 191	FX 2 Params 12  (0-255)
   "33"   		# 192	FX 3 Type  (0-33)
-  "255"  		# 193	FX 3 Params 1  (0-255)
-  "255"  		# 194	FX 3 Params 2  (0-255)
-  "255"  		# 195	FX 3 Params 3  (0-255)
-  "255"  		# 196	FX 3 Params 4  (0-255)
-  "255"  		# 197	FX 3 Params 5  (0-255)
-  "255"  		# 198	FX 3 Params 6  (0-255)
-  "255"  		# 199	FX 3 Params 7  (0-255)
-  "255"  		# 200	FX 3 Params 8  (0-255)
-  "255"  		# 201	FX 3 Params 9  (0-255)
-  "255"  		# 202	FX 3 Params 10  (0-255)
-  "255"  		# 203	FX 3 Params 11  (0-255)
-  "255"  		# 204	FX 3 Params 12  (0-255)
+  "100"  		# 193	FX 3 Params 1  (0-255)
+  "100"  		# 194	FX 3 Params 2  (0-255)
+  "100"  		# 195	FX 3 Params 3  (0-255)
+  "100"  		# 196	FX 3 Params 4  (0-255)
+  "100"  		# 197	FX 3 Params 5  (0-255)
+  "100"  		# 198	FX 3 Params 6  (0-255)
+  "100"  		# 199	FX 3 Params 7  (0-255)
+  "100"  		# 200	FX 3 Params 8  (0-255)
+  "100"  		# 201	FX 3 Params 9  (0-255)
+  "100"  		# 202	FX 3 Params 10  (0-255)
+  "100"  		# 203	FX 3 Params 11  (0-255)
+  "100"  		# 204	FX 3 Params 12  (0-255)
   "33"   		# 205	FX 4 Type  (0-33)
-  "255"  		# 206	FX 4 Params 1  (0-255)
-  "255"  		# 207	FX 4 Params 2  (0-255)
-  "255"  		# 208	FX 4 Params 3  (0-255)
-  "255"  		# 209	FX 4 Params 4  (0-255)
-  "255"  		# 210	FX 4 Params 5  (0-255)
-  "255"  		# 211	FX 4 Params 6  (0-255)
-  "255"  		# 212	FX 4 Params 7  (0-255)
-  "255"  		# 213	FX 4 Params 8  (0-255)
-  "255"  		# 214	FX 4 Params 9  (0-255)
-  "255"  		# 215	FX 4 Params 10  (0-255)
-  "255"  		# 216	FX 4 Params 11  (0-255)
-  "255"  		# 217	FX 4 Params 12  (0-255)
-  "150"  		# 218	FX 1 Output Gain  (0-150)
-  "150" 		# 219	FX 2 Output Gain  (0-150)
-  "150" 		# 220	FX 3 Output Gain  (0-150)
-  "150"  		# 221	FX 4 Output Gain  (0-150)
+  "100"  		# 206	FX 4 Params 1  (0-255)
+  "100"  		# 207	FX 4 Params 2  (0-255)
+  "100"  		# 208	FX 4 Params 3  (0-255)
+  "100"  		# 209	FX 4 Params 4  (0-255)
+  "100"  		# 210	FX 4 Params 5  (0-255)
+  "100"  		# 211	FX 4 Params 6  (0-255)
+  "100"  		# 212	FX 4 Params 7  (0-255)
+  "100"  		# 213	FX 4 Params 8  (0-255)
+  "100"  		# 214	FX 4 Params 9  (0-255)
+  "100"  		# 215	FX 4 Params 10  (0-255)
+  "100"  		# 216	FX 4 Params 11  (0-255)
+  "100"  		# 217	FX 4 Params 12  (0-255)
+  "100"  		# 218	FX 1 Output Gain  (0-150)
+  "100" 		# 219	FX 2 Output Gain  (0-150)
+  "100" 		# 220	FX 3 Output Gain  (0-150)
+  "100"  		# 221	FX 4 Output Gain  (0-150)
   "2"    		# 222	FX Mode  (0-2)
 )
 
