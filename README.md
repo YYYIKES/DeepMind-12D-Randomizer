@@ -1,5 +1,7 @@
 # DeepMind 12D Randomizer
 
+***UPDATE: I'm working on a simple tkinter GUI for this script which will allow you to the amount of randomization, select which parameters to omit, set min and maximum ranges for each parameter, and maybe a few other things. If I can figure out how, I'll make it into a standalone macos app.***
+
 This script sends randomized NRPN values to the Behringer DeepMind 12D via Geert Bevin's super useful [SendMIDI command line tool](https://github.com/gbevin/SendMIDI). It will probably also work on the DeepMind 12 Keyboard version. 
 
 Essentially, this script makes completely randomized patches, so some will be trash, and some might be interesting. Be aware that some randomizations may create loud patches and/or feedback loops.
@@ -28,19 +30,22 @@ Essentially, this script makes completely randomized patches, so some will be tr
 For example, you could run `./DM12D-Randomizer.sh -lfo -mod -fx` to randomize only the lfo, mod, and fx sections.
 
 #### Notes:
-- *I have omitted the following from randomization:
-  - VCA Level (NRPN 80):
-    - Reason: To reduce likelihood of silent patches.
+- *I have omitted/limited the following from randomization:
+  - VCA Level
     - Instead this will be set to 255.
-  - VCA Highpass Freq (NRPN 40):
-    - Reason: To reduce likelihood of silent patches.
+    - Reason: To reduce likelihood of silent patches. 
+  - VCA Highpass Freq
     - Instead the existing value will remain.
-  - VCA+VCF Envelope Velocity Sensitivities (NRPN 43, 82):
-    - Reason: To maintain playability.
+    - Reason: To reduce likelihood of silent patches. 
+  - VCA+VCF Envelope Velocity Sensitivities
     - Instead the existing value will remain.
-  - Pitch bend Up+Down (NPRN 36, 37):
-    - Reason: To maintain playability.
+    - Reason: To maintain playability. 
+  - Pitch bend Up+Down
     - Instead these will be set to -24, +24.
+    - Reason: To maintain playability. 
+  - FX Parameters and FX Output Gains
+    - Instead randomization will be limited max 100.
+    - Reason: To reduce extreme volume / mix settings.
   - You can remove these from the skip list and/or add/remove other parameters in the relevant section toward the end of the script.
 
 Enjoy!
