@@ -11,13 +11,17 @@ Features:
 - Set minimum and maximum ranges for each parameter
 
 Usage:
-Download the app. Run.
+Download the latest release here: [Deepmind-12-Randomizer](https://github.com/YYYIKES/DeepMind-12D-Randomizer/releases/download/v1.0.0/DeepMind-12-Randomizer-App.zip)
 
 **!!!!!!!!! Use this at your own risk !!!!!!!!!**
 
-***
+</br>
+</br>
+---
+</br>
+</br>
 
-## Old Bash Script Version:
+#### Old Bash Script Version:
 
 This script sends randomized NRPN values to the Behringer DeepMind 12D via Geert Bevin's super useful [SendMIDI command line tool](https://github.com/gbevin/SendMIDI). It will probably also work on the DeepMind 12 Keyboard version. 
 
