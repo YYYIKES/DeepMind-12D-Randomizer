@@ -1,5 +1,24 @@
 # DeepMind 12D Randomizer
 
+This app sends randomized NRPN values to the Behringer DeepMind 12D. It should also work on the DeepMind 12 Keyboard version. Essentially, it lets you randomized patches. Some will be trash, and some might be interesting. Be aware that some randomizations may create loud patches and/or feedback loops. This works on my M1 mac, but is untested on any other OS version / platform.
+
+Features:
+- Randomize all parameters
+- Randomize only specific sections (OSC, VCA, VCF, Envelopes, ARP/SEQ, LFO, FX)
+- Set the amount of randomization (absolute, not relative to current parameters)
+- Deselect any parameters you want to omit from randomization
+- Set the name of your midi devices (if you've re-named your DeepMind in your system settings)
+- Set minimum and maximum ranges for each parameter
+
+Usage:
+Download the app. Run.
+
+**!!!!!!!!! Use this at your own risk !!!!!!!!!**
+
+***
+
+## Old Bash Script Version:
+
 This script sends randomized NRPN values to the Behringer DeepMind 12D via Geert Bevin's super useful [SendMIDI command line tool](https://github.com/gbevin/SendMIDI). It will probably also work on the DeepMind 12 Keyboard version. 
 
 Essentially, this script makes completely randomized patches, so some will be trash, and some might be interesting. Be aware that some randomizations may create loud patches and/or feedback loops.
