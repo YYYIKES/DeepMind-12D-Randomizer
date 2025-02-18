@@ -15,8 +15,8 @@ Download the latest release here: [Deepmind-12-Randomizer](https://github.com/YY
 
 **!!!!!!!!! Use this at your own risk !!!!!!!!!**
 
-<img src="screenshots/Deepmind-12-Randomizer-screenshot1.jpg" alt="Screenshot 1"> 
-<img src="screenshots/Deepmind-12-Randomizer-screenshot2.jpg" alt="Screenshot 2"> 
+<img src="screenshots/Deepmind-12-Randomizer-screenshot1.png" alt="Screenshot 1"> 
+<img src="screenshots/Deepmind-12-Randomizer-screenshot2.png" alt="Screenshot 2"> 
 
 </br>
 </br>
