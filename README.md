@@ -4,11 +4,11 @@ This app sends randomized NRPN values to the Behringer DeepMind 12D. It should a
 
 Features:
 - Randomize all parameters
-- Randomize only specific sections (OSC, VCA, VCF, Envelopes, ARP/SEQ, LFO, FX)
-- Set the amount of randomization (absolute, not relative to current parameters)
+- Randomize only specific sections (OSC, VCA, VCF, Envelopes, ARP/SEQ, LFO, FX, MOD, POLY)
 - Deselect any parameters you want to omit from randomization
 - Set the name of your midi devices (if you've re-named your DeepMind in your system settings)
 - Set minimum and maximum ranges for each parameter
+- Save your settings as the app default / restore to "factory" default.
 
 Usage:
 Download the latest release here: [Deepmind-12-Randomizer](https://github.com/YYYIKES/DeepMind-12D-Randomizer/releases/download/v1.1.0/DeepMind-12-Randomizer-App.zip)
