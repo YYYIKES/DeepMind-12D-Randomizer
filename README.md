@@ -1,4 +1,6 @@
-# DeepMind 12D Randomizer
+# DeepMind 12 / 12D Randomizer
+
+<img src="screenshots/app-icon.png" alt="App Icon" width="200" height="200">
 
 This app sends randomized NRPN values to the Behringer DeepMind 12D. It should also work on the DeepMind 12 Keyboard version. Essentially, it lets you randomized patches. Some will be trash, and some might be interesting. Be aware that some randomizations may create loud patches and/or feedback loops. This works on my M1 mac, but is untested on any other OS version / platform.
 
