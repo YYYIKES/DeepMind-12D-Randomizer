@@ -11,7 +11,7 @@ Features:
 - Set minimum and maximum ranges for each parameter
 
 Usage:
-Download the latest release here: [Deepmind-12-Randomizer](https://github.com/YYYIKES/DeepMind-12D-Randomizer/releases/download/v1.0.0/DeepMind-12-Randomizer-App.zip)
+Download the latest release here: [Deepmind-12-Randomizer](https://github.com/YYYIKES/DeepMind-12D-Randomizer/releases/download/v1.1.0/DeepMind-12-Randomizer-App.zip)
 
 **!!!!!!!!! Use this at your own risk !!!!!!!!!**
 
