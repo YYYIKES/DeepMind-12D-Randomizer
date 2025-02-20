@@ -12,6 +12,14 @@ Features:
 - Set minimum and maximum ranges for each parameter
 - Save your settings as the app default / restore to "factory" default.
 
+To reduce the likelihood of silent patches and increase the likelihood of more playable patches, the following parameters are unselected by default (but you can set your own defaults if you like), and so will remain at whatever you've currently set them as:
+- VCA Level
+- VCA Envelope Velocity Sensitivity
+- VCF Envelope Velocity Sensitivity
+- VCF High Pass Filter
+- FX2 Gain and FX3 Gain (they have NRPN control mappings but the parameters don't take values, but I've left them in there incase that changes in future firmware updates)
+- Pitch Bend Up / Pitch Bend Down
+
 Usage:
 Download the latest release here: [Deepmind-12-Randomizer](https://github.com/YYYIKES/DeepMind-12D-Randomizer/releases/download/v1.1.0/DeepMind-12-Randomizer-App.zip)
 
