@@ -208,690 +208,712 @@ class DeepMindRandomizer(tk.Tk):
     def load_parameter_data(self):
         # Parameter ranges: The maximum value for each parameter
         self.ranges = [
-            255,
-            255,
-            6,
-            1,
-            1,
-            1,
-            255,
-            255,
-            255,
-            6,
-            1,
-            1,
-            255,
-            255,
-            2,
-            2,
-            5,
-            5,
-            1,
-            1,
-            1,
-            255,
-            6,
-            255,
-            255,
-            255,
-            255,
-            255,
-            255,
-            255,
-            255,
-            255,
-            6,
-            255,
-            255,
-            13,
-            24,
-            24,
-            1,
-            255,
-            255,
-            255,
-            255,
-            255,
-            255,
-            255,
-            1,
-            255,
-            255,
-            255,
-            1,
-            1,
-            1,
-            255,
-            255,
-            255,
-            255,
-            4,
-            255,
-            255,
-            255,
-            255,
-            255,
-            255,
-            255,
-            255,
-            4,
-            255,
-            255,
-            255,
-            255,
-            255,
-            255,
-            255,
-            255,
-            4,
-            255,
-            255,
-            255,
-            255,
-            255,
-            255,
-            255,
-            255,
-            2,
-            12,
-            3,
-            255,
-            255,
-            255,
-            255,
-            255,
-            1,
-            22,
-            129,
-            255,
-            22,
-            129,
-            255,
-            22,
-            129,
-            255,
-            22,
-            129,
-            255,
-            22,
-            129,
-            255,
-            22,
-            129,
-            255,
-            22,
-            129,
-            255,
-            22,
-            129,
-            255,
-            1,
-            15,
-            31,
-            25,
-            2,
-            255,
-            255,
-            255,
-            255,
-            255,
-            255,
-            255,
-            255,
-            255,
-            255,
-            255,
-            255,
-            255,
-            255,
-            255,
-            255,
-            255,
-            255,
-            255,
-            255,
-            255,
-            255,
-            255,
-            255,
-            255,
-            255,
-            255,
-            255,
-            255,
-            255,
-            255,
-            255,
-            255,
-            255,
-            255,
-            255,
-            1,
-            10,
-            255,
-            12,
-            1,
-            255,
-            1,
-            64,
-            25,
-            5,
-            9,
-            33,
-            255,
-            255,
-            255,
-            255,
-            255,
-            255,
-            255,
-            255,
-            255,
-            255,
-            255,
-            255,
-            33,
-            255,
-            255,
-            255,
-            255,
-            255,
-            255,
-            255,
-            255,
-            255,
-            255,
-            255,
-            255,
-            33,
-            255,
-            255,
-            255,
-            255,
-            255,
-            255,
-            255,
-            255,
-            255,
-            255,
-            255,
-            255,
-            33,
-            255,
-            255,
-            255,
-            255,
-            255,
-            255,
-            255,
-            255,
-            255,
-            255,
-            255,
-            255,
-            150,
-            150,
-            150,
-            150,
-            2,
+            255,  # 0:   LFO1 Rate
+            255,  # 1:   LFO1 Delay
+            6,  # 2:   LFO1 Shape
+            1,  # 3:   LFO1 Key Sync
+            1,  # 4:   LFO1 Arp Sync
+            1,  # 5:   LFO1 Mono Mode
+            255,  # 6:   LFO1 Slew
+            255,  # 7:   LFO2 Rate
+            255,  # 8:   LFO2 Delay
+            6,  # 9:   LFO2 Shape
+            1,  # 10:  LFO2 Key Sync
+            1,  # 11:  LFO2 Arp Sync
+            255,  # 12:  LFO2 Mono Mode
+            255,  # 13:  LFO2 Slew
+            2,  # 14:  OSC1 Range
+            2,  # 15:  OSC2 Range
+            5,  # 16:  OSC1 PWM Src
+            5,  # 17:  OSC2 TM Src
+            1,  # 18:  OSC1 Pulse
+            1,  # 19:  OSC1 Saw
+            1,  # 20:  OSC Sync
+            255,  # 21:  OSC1 PM Depth
+            6,  # 22:  OSC1 PM Select
+            255,  # 23:  OSC1 ATouch>PM Depth
+            255,  # 24:  OSC1 MW>PM Depth
+            255,  # 25:  OSC1 PWM Depth
+            255,  # 26:  OSC2 Level
+            255,  # 27:  OSC2 Pitch
+            255,  # 28:  OSC2 TM Depth
+            255,  # 29:  OSC2 PM Depth
+            255,  # 30:  OSC2 ATouch>PM Depth
+            255,  # 31:  OSC2 MW>PM Depth
+            6,  # 32:  OSC2 PM Select
+            255,  # 33:  Noise Level
+            255,  # 34:  Porta Time
+            13,  # 35:  Porta Mode
+            24,  # 36:  PB+ Depth
+            24,  # 37:  PB- Depth
+            1,  # 38:  OSC1 PM Mode
+            255,  # 39:  VCF Freq
+            255,  # 40:  VCF HPF
+            255,  # 41:  VCF Reso
+            255,  # 42:  VCF Env Depth
+            255,  # 43:  VCF Env Velo Sens
+            255,  # 44:  VCF PB>Freq Depth
+            255,  # 45:  VCF LFO Depth
+            1,  # 46:  VCF LFO Select
+            255,  # 47:  VCF ATouch>LFO Depth
+            255,  # 48:  VCF MW>LFO Depth
+            255,  # 49:  VCF Keytrack
+            1,  # 50:  VCF Env Polarity
+            1,  # 51:  VCF 2 Pole
+            1,  # 52:  VCF Boost
+            255,  # 53:  VCA Env Atk
+            255,  # 54:  VCA Env Dec
+            255,  # 55:  VCA Env Sust
+            255,  # 56:  VCA Env Rel
+            4,  # 57:  VCA Env Trig Mode
+            255,  # 58:  VCA Env Atk Curve
+            255,  # 59:  VCA Env Dec Curve
+            255,  # 60:  VCA Env Sust Curve
+            255,  # 61:  VCA Env Rrel Curve
+            255,  # 62:  VCF Env Atk
+            255,  # 63:  VCF Env Dec
+            255,  # 64:  VCF Env Sust
+            255,  # 65:  VCF Env Rel
+            4,  # 66:  VCF Env Trig Mode
+            255,  # 67:  VCF Env Atk Curve
+            255,  # 68:  VCF Env Dec Curve
+            255,  # 69:  VCF Env Sust Curve
+            255,  # 70:  VCF Env Rel Curve
+            255,  # 71:  Mod Env Atk
+            255,  # 72:  Mod Env Dec
+            255,  # 73:  Mod Env Sust
+            255,  # 74:  Mod Env Rel
+            4,  # 75:  Mod Env Trig Mode
+            255,  # 76:  Mod Env Atk Curve
+            255,  # 77:  Mod Env Dec Curve
+            255,  # 78:  Mod Env Sust Curve
+            255,  # 79:  Mod Env Rel Curve
+            255,  # 80:  VCA Level
+            255,  # 81:  VCA Env Depth
+            255,  # 82:  VCA Env Velo Sens
+            255,  # 83:  VCA Pan Spread
+            2,  # 84:  Voice Priority Mode
+            12,  # 85:  Polyphony Mode
+            3,  # 86:  Env Trigger Mode
+            255,  # 87:  Unison Detune
+            255,  # 88:  Voice Drift
+            255,  # 89:  Parameter Drift
+            255,  # 90:  Drift Rate
+            255,  # 91:  OSC Porta Balance
+            1,  # 92:  OSC Key Reset
+            22,  # 93:  Mod1 Src
+            129,  # 94:  Mod1 Dest
+            255,  # 95:  Mod1 Depth
+            22,  # 96:  Mod2 Src
+            129,  # 97:  Mod2 Dest
+            255,  # 98:  Mod2 Depth
+            22,  # 99:  Mod3 Src
+            129,  # 100: Mod3 Dest
+            255,  # 101: Mod3 Depth
+            22,  # 102: Mod4 Src
+            129,  # 103: Mod4 Dest
+            255,  # 104: Mod4 Depth
+            22,  # 105: Mod5 Src
+            129,  # 106: Mod5 Dest
+            255,  # 107: Mod5 Depth
+            22,  # 108: Mod6 Src
+            129,  # 109: Mod6 Dest
+            255,  # 110: Mod6 Depth
+            22,  # 111: Mod7 Src
+            129,  # 112: Mod7 Dest
+            255,  # 113: Mod7 Depth
+            22,  # 114: Mod8 Src
+            129,  # 115: Mod8 Dest
+            255,  # 116: Mod8 Depth
+            1,  # 117: Ctrl Seq Enable
+            15,  # 118: Ctrl Seq Clock
+            31,  # 119: Sequence Length
+            25,  # 120: Sequencer Swing
+            2,  # 121: Key Sync & Loop
+            255,  # 122: Slew
+            255,  # 123: Seq Step 1
+            255,  # 124: Seq Step 2
+            255,  # 125: Seq Step 3
+            255,  # 126: Seq Step 4
+            255,  # 127: Seq Step 5
+            255,  # 128: Seq Step 6
+            255,  # 129: Seq Step 7
+            255,  # 130: Seq Step 8
+            255,  # 131: Seq Step 9
+            255,  # 132: Seq Step 10
+            255,  # 133: Seq Step 11
+            255,  # 134: Seq Step 12
+            255,  # 135: Seq Step 13
+            255,  # 136: Seq Step 14
+            255,  # 137: Seq Step 15
+            255,  # 138: Seq Step 16
+            255,  # 139: Seq Step 17
+            255,  # 140: Seq Step 18
+            255,  # 141: Seq Step 19
+            255,  # 142: Seq Step 20
+            255,  # 143: Seq Step 21
+            255,  # 144: Seq Step 22
+            255,  # 145: Seq Step 23
+            255,  # 146: Seq Step 24
+            255,  # 147: Seq Step 25
+            255,  # 148: Seq Step 26
+            255,  # 149: Seq Step 27
+            255,  # 150: Seq Step 28
+            255,  # 151: Seq Step 29
+            255,  # 152: Seq Step 30
+            255,  # 153: Seq Step 31
+            255,  # 154: Seq Step 32
+            1,  # 155: Arp On/Off
+            10,  # 156: Arp Mode
+            255,  # 157: Arp Rate
+            12,  # 158: Arp Clock
+            1,  # 159: Arp Key Sync
+            255,  # 160: Arp Gate
+            1,  # 161: Arp Hold
+            64,  # 162: Arp Pattern
+            25,  # 163: Arp Swing
+            5,  # 164: Arp Octaves
+            9,  # 165: FX Routing
+            33,  # 166: FX1 Type
+            255,  # 167: FX1 Param 1
+            255,  # 168: FX1 Param 2
+            255,  # 169: FX1 Param 3
+            255,  # 170: FX1 Param 4
+            255,  # 171: FX1 Param 5
+            255,  # 172: FX1 Param 6
+            255,  # 173: FX1 Param 7
+            255,  # 174: FX1 Param 8
+            255,  # 175: FX1 Param 9
+            255,  # 176: FX1 Param 10
+            255,  # 177: FX1 Param 11
+            255,  # 178: FX1 Param 12
+            33,  # 179: FX2 Type
+            255,  # 180: FX2 Param 1
+            255,  # 181: FX2 Param 2
+            255,  # 182: FX2 Param 3
+            255,  # 183: FX2 Param 4
+            255,  # 184: FX2 Param 5
+            255,  # 185: FX2 Param 6
+            255,  # 186: FX2 Param 7
+            255,  # 187: FX2 Param 8
+            255,  # 188: FX2 Param 9
+            255,  # 189: FX2 Param 10
+            255,  # 190: FX2 Param 11
+            255,  # 191: FX2 Param 12
+            33,  # 192: FX3 Type
+            255,  # 193: FX3 Param 1
+            255,  # 194: FX3 Param 2
+            255,  # 195: FX3 Param 3
+            255,  # 196: FX3 Param 4
+            255,  # 197: FX3 Param 5
+            255,  # 198: FX3 Param 6
+            255,  # 199: FX3 Param 7
+            255,  # 200: FX3 Param 8
+            255,  # 201: FX3 Param 9
+            255,  # 202: FX3 Param 10
+            255,  # 203: FX3 Param 11
+            255,  # 204: FX3 Param 12
+            33,  # 205: FX4 Type
+            255,  # 206: FX4 Param 1
+            255,  # 207: FX4 Param 2
+            255,  # 208: FX4 Param 3
+            255,  # 209: FX4 Param 4
+            255,  # 210: FX4 Param 5
+            255,  # 211: FX4 Param 6
+            255,  # 212: FX4 Param 7
+            255,  # 213: FX4 Param 8
+            255,  # 214: FX4 Param 9
+            255,  # 215: FX4 Param 10
+            255,  # 216: FX4 Param 11
+            255,  # 217: FX4 Param 12
+            150,  # 218: FX1 Gain
+            0,  # 219: FX2 Gain
+            0,  # 220: FX3 Gain
+            150,  # 221: FX4 Gain
+            2,  # 222: FX Mode
         ]
 
         # Parameter groups: Organizes parameters into logical sections
         self.param_groups = {
             "OSC": [
-                14,
-                15,
-                16,
-                17,
-                18,
-                19,
-                20,
-                21,
-                22,
-                23,
-                24,
-                25,
-                26,
-                27,
-                28,
-                29,
-                30,
-                31,
-                32,
-                33,
-                38,
-                91,
-                92,
+                14,  # OSC1 Range
+                15,  # OSC2 Range
+                16,  # OSC1 PWM Src
+                17,  # OSC2 TM Src
+                18,  # OSC1 Pulse
+                19,  # OSC1 Saw
+                20,  # OSC Sync
+                21,  # OSC1 PM Depth
+                22,  # OSC1 PM Select
+                23,  # OSC1 ATouch>PM Depth
+                24,  # OSC1 MW>PM Depth
+                25,  # OSC1 PWM Depth
+                26,  # OSC2 Level
+                27,  # OSC2 Pitch
+                28,  # OSC2 TM Depth
+                29,  # OSC2 PM Depth
+                30,  # OSC2 ATouch>PM Depth
+                31,  # OSC2 MW>PM Depth
+                32,  # OSC2 PM Select
+                33,  # Noise Level
+                38,  # OSC1 PM Mode
+                91,  # OSC Porta Balance
+                92,  # OSC Key Reset
             ],
-            "VCA": [53, 54, 55, 56, 57, 58, 59, 60, 61, 80, 81, 82, 83],
+            "VCA": [
+                53,  # VCA Env Atk
+                54,  # VCA Env Dec
+                55,  # VCA Env Sust
+                56,  # VCA Env Rel
+                57,  # VCA Env Trig Mode
+                58,  # VCA Env Atk Curve
+                59,  # VCA Env Dec Curve
+                60,  # VCA Env Sust Curve
+                61,  # VCA Env Rrel Curve
+                80,  # VCA Level
+                81,  # VCA Env Depth
+                82,  # VCA Env Velo Sens
+                83,  # VCA Pan Spread
+            ],
             "VCF": [
-                39,
-                40,
-                41,
-                42,
-                43,
-                44,
-                45,
-                46,
-                47,
-                48,
-                49,
-                50,
-                51,
-                52,
-                62,
-                63,
-                64,
-                65,
-                66,
-                67,
-                68,
-                69,
-                70,
+                39,  # VCF Freq
+                40,  # VCF HPF
+                41,  # VCF Reso
+                42,  # VCF Env Depth
+                43,  # VCF Env Velo Sens
+                44,  # VCF PB>Freq Depth
+                45,  # VCF LFO Depth
+                46,  # VCF LFO Select
+                47,  # VCF ATouch>LFO Depth
+                48,  # VCF MW>LFO Depth
+                49,  # VCF Keytrack
+                50,  # VCF Env Polarity
+                51,  # VCF 2 Pole
+                52,  # VCF Boost
             ],
             "ENV": [
-                53,
-                54,
-                55,
-                56,
-                57,
-                58,
-                59,
-                60,
-                61,
-                62,
-                63,
-                64,
-                65,
-                66,
-                67,
-                68,
-                69,
-                70,
-                71,
-                72,
-                73,
-                74,
-                75,
-                76,
-                77,
-                78,
-                79,
+                53,  # VCA Env Atk
+                54,  # VCA Env Dec
+                55,  # VCA Env Sust
+                56,  # VCA Env Rel
+                57,  # VCA Env Trig Mode
+                58,  # VCA Env Atk Curve
+                59,  # VCA Env Dec Curve
+                60,  # VCA Env Sust Curve
+                61,  # VCA Env Rrel Curve
+                62,  # VCF Env Atk
+                63,  # VCF Env Dec
+                64,  # VCF Env Sust
+                65,  # VCF Env Rel
+                66,  # VCF Env Trig Mode
+                67,  # VCF Env Atk Curve
+                68,  # VCF Env Dec Curve
+                69,  # VCF Env Sust Curve
+                70,  # VCF Env Rel Curve
+                71,  # Mod Env Atk
+                72,  # Mod Env Dec
+                73,  # Mod Env Sust
+                74,  # Mod Env Rel
+                75,  # Mod Env Trig Mode
+                76,  # Mod Env Atk Curve
+                77,  # Mod Env Dec Curve
+                78,  # Mod Env Sust Curve
+                79,  # Mod Env Rel Curve
             ],
             "ARP/SEQ": [
-                117,
-                118,
-                119,
-                120,
-                121,
-                122,
-                123,
-                124,
-                125,
-                126,
-                127,
-                128,
-                129,
-                130,
-                131,
-                132,
-                133,
-                134,
-                135,
-                136,
-                137,
-                138,
-                139,
-                140,
-                141,
-                142,
-                143,
-                144,
-                145,
-                146,
-                147,
-                148,
-                149,
-                150,
-                151,
-                152,
-                153,
-                154,
-                155,
-                156,
-                157,
-                158,
-                159,
-                160,
-                161,
-                162,
-                163,
-                164,
+                117,  # Ctrl Seq Enable
+                118,  # Ctrl Seq Clock
+                119,  # Sequence Length
+                120,  # Sequencer Swing
+                121,  # Key Sync & Loop
+                122,  # Slew
+                123,  # Seq Step 1
+                124,  # Seq Step 2
+                125,  # Seq Step 3
+                126,  # Seq Step 4
+                127,  # Seq Step 5
+                128,  # Seq Step 6
+                129,  # Seq Step 7
+                130,  # Seq Step 8
+                131,  # Seq Step 9
+                132,  # Seq Step 10
+                133,  # Seq Step 11
+                134,  # Seq Step 12
+                135,  # Seq Step 13
+                136,  # Seq Step 14
+                137,  # Seq Step 15
+                138,  # Seq Step 16
+                139,  # Seq Step 17
+                140,  # Seq Step 18
+                141,  # Seq Step 19
+                142,  # Seq Step 20
+                143,  # Seq Step 21
+                144,  # Seq Step 22
+                145,  # Seq Step 23
+                146,  # Seq Step 24
+                147,  # Seq Step 25
+                148,  # Seq Step 26
+                149,  # Seq Step 27
+                150,  # Seq Step 28
+                151,  # Seq Step 29
+                152,  # Seq Step 30
+                153,  # Seq Step 31
+                154,  # Seq Step 32
+                155,  # Arp On/Off
+                156,  # Arp Mode
+                157,  # Arp Rate
+                158,  # Arp Clock
+                159,  # Arp Key Sync
+                160,  # Arp Gate
+                161,  # Arp Hold
+                162,  # Arp Pattern
+                163,  # Arp Swing
+                164,  # Arp Octaves
             ],
-            "LFO": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13],
+            "LFO": [
+                0,  # LFO1 Rate
+                1,  # LFO1 Delay
+                2,  # LFO1 Shape
+                3,  # LFO1 Key Sync
+                4,  # LFO1 Arp Sync
+                5,  # LFO1 Mono Mode
+                6,  # LFO1 Slew
+                7,  # LFO2 Rate
+                8,  # LFO2 Delay
+                9,  # LFO2 Shape
+                10,  # LFO2 Key Sync
+                11,  # LFO2 Arp Sync
+                12,  # LFO2 Mono Mode
+                13,  # LFO2 Slew
+            ],
             "FX": [
-                165,
-                166,
-                167,
-                168,
-                169,
-                170,
-                171,
-                172,
-                173,
-                174,
-                175,
-                176,
-                177,
-                178,
-                179,
-                180,
-                181,
-                182,
-                183,
-                184,
-                185,
-                186,
-                187,
-                188,
-                189,
-                190,
-                191,
-                192,
-                193,
-                194,
-                195,
-                196,
-                197,
-                198,
-                199,
-                200,
-                201,
-                202,
-                203,
-                204,
-                205,
-                206,
-                207,
-                208,
-                209,
-                210,
-                211,
-                212,
-                213,
-                214,
-                215,
-                216,
-                217,
-                218,
-                219,
-                220,
-                221,
-                222,
+                165,  # FX Routing
+                166,  # FX1 Type
+                167,  # FX1 Param 1
+                168,  # FX1 Param 2
+                169,  # FX1 Param 3
+                170,  # FX1 Param 4
+                171,  # FX1 Param 5
+                172,  # FX1 Param 6
+                173,  # FX1 Param 7
+                174,  # FX1 Param 8
+                175,  # FX1 Param 9
+                176,  # FX1 Param 10
+                177,  # FX1 Param 11
+                178,  # FX1 Param 12
+                179,  # FX2 Type
+                180,  # FX2 Param 1
+                181,  # FX2 Param 2
+                182,  # FX2 Param 3
+                183,  # FX2 Param 4
+                184,  # FX2 Param 5
+                185,  # FX2 Param 6
+                186,  # FX2 Param 7
+                187,  # FX2 Param 8
+                188,  # FX2 Param 9
+                189,  # FX2 Param 10
+                190,  # FX2 Param 11
+                191,  # FX2 Param 12
+                192,  # FX3 Type
+                193,  # FX3 Param 1
+                194,  # FX3 Param 2
+                195,  # FX3 Param 3
+                196,  # FX3 Param 4
+                197,  # FX3 Param 5
+                198,  # FX3 Param 6
+                199,  # FX3 Param 7
+                200,  # FX3 Param 8
+                201,  # FX3 Param 9
+                202,  # FX3 Param 10
+                203,  # FX3 Param 11
+                204,  # FX3 Param 12
+                205,  # FX4 Type
+                206,  # FX4 Param 1
+                207,  # FX4 Param 2
+                208,  # FX4 Param 3
+                209,  # FX4 Param 4
+                210,  # FX4 Param 5
+                211,  # FX4 Param 6
+                212,  # FX4 Param 7
+                213,  # FX4 Param 8
+                214,  # FX4 Param 9
+                215,  # FX4 Param 10
+                216,  # FX4 Param 11
+                217,  # FX4 Param 12
+                218,  # FX1 Gain
+                219,  # FX2 Gain
+                220,  # FX3 Gain
+                221,  # FX4 Gain
+                222,  # FX Mode
             ],
             "MOD": [
-                71,
-                72,
-                73,
-                74,
-                75,
-                76,
-                77,
-                78,
-                79,
-                93,
-                94,
-                95,
-                96,
-                97,
-                98,
-                99,
-                100,
-                101,
-                102,
-                103,
-                104,
-                105,
-                106,
-                107,
-                108,
-                109,
-                110,
-                111,
-                112,
-                113,
-                114,
-                115,
-                116,
+                93,  # Mod1 Src
+                94,  # Mod1 Dest
+                95,  # Mod1 Depth
+                96,  # Mod2 Src
+                97,  # Mod2 Dest
+                98,  # Mod2 Depth
+                99,  # Mod3 Src
+                100,  # Mod3 Dest
+                101,  # Mod3 Depth
+                102,  # Mod4 Src
+                103,  # Mod4 Dest
+                104,  # Mod4 Depth
+                105,  # Mod5 Src
+                106,  # Mod5 Dest
+                107,  # Mod5 Depth
+                108,  # Mod6 Src
+                109,  # Mod6 Dest
+                110,  # Mod6 Depth
+                111,  # Mod7 Src
+                112,  # Mod7 Dest
+                113,  # Mod7 Depth
+                114,  # Mod8 Src
+                115,  # Mod8 Dest
+                116,  # Mod8 Depth
             ],
-            "POLY": [34, 35, 36, 37, 84, 85, 86, 87, 88, 89, 90, 91, 92],
+            "POLY": [
+                34,  # Porta Time
+                35,  # Porta Mode
+                36,  # PB+ Depth
+                37,  # PB- Depth
+                84,  # Voice Priority Mode
+                85,  # Polyphony Mode
+                86,  # Env Trigger Mode
+                87,  # Unison Detune
+                88,  # Voice Drift
+                89,  # Parameter Drift
+                90,  # Drift Rate
+                91,  # OSC Porta Balance
+                92,  # OSC Key Reset
+            ],
         }
 
         # Parameter names: Maps parameter numbers to human-readable names
         self.param_names = {
-            0: "LFO1 Rate",
-            1: "LFO1 Delay",
-            2: "LFO1 Shape",
-            3: "LFO1 Key Sync",
-            4: "LFO1 Arp Sync",
-            5: "LFO1 Mono Mode",
-            6: "LFO1 Slew",
-            7: "LFO2 Rate",
-            8: "LFO2 Delay",
-            9: "LFO2 Shape",
-            10: "LFO2 Key Sync",
-            11: "LFO2 Arp Sync",
-            12: "LFO2 Mono Mode",
-            13: "LFO2 Slew",
-            14: "OSC1 Range",
-            15: "OSC2 Range",
-            16: "OSC1 PWM Src",
-            17: "OSC2 TM Src",
-            18: "OSC1 Pulse",
-            19: "OSC1 Saw",
-            20: "OSC Sync",
-            21: "OSC1 PM Depth",
-            22: "OSC1 PM Select",
-            23: "OSC1 ATouch>PM Depth",
-            24: "OSC1 MW>PM Depth",
-            25: "OSC1 PWM Depth",
-            26: "OSC2 Level",
-            27: "OSC2 Pitch",
-            28: "OSC2 TM Depth",
-            29: "OSC2 PM Depth",
-            30: "OSC2 ATouch>PM Depth",
-            31: "OSC2 MW>PM Depth",
-            32: "OSC2 PM Select",
-            33: "Noise Level",
-            34: "Porta Time",
-            35: "Porta Mode",
-            36: "PB+ Depth",
-            37: "PB- Depth",
-            38: "OSC1 PM Mode",
-            39: "VCF Freq",
-            40: "VCF HPF",
-            41: "VCF Reso",
-            42: "VCF Env Depth",
-            43: "VCF Env Velo Sens",
-            44: "VCF PB>Freq Depth",
-            45: "VCF LFO Depth",
-            46: "VCF LFO Select",
-            47: "VCF ATouch>LFO Depth",
-            48: "VCF MW>LFO Depth",
-            49: "VCF Keytrack",
-            50: "VCF Env Polarity",
-            51: "VCF 2 Pole",
-            52: "VCF Boost",
-            53: "VCA Env Atk",
-            54: "VCA Env Dec",
-            55: "VCA Env Sust",
-            56: "VCA Env Rel",
-            57: "VCA Env Trig Mode",
-            58: "VCA Env Atk Curve",
-            59: "VCA Env Dec Curve",
-            60: "VCA Env Sust Curve",
-            61: "VCA Env Rrel Curve",
-            62: "VCF Env Atk",
-            63: "VCF Env Dec",
-            64: "VCF Env Sust",
-            65: "VCF Env Rel",
-            66: "VCF Env Trig Mode",
-            67: "VCF Env Atk Curve",
-            68: "VCF Env Dec Curve",
-            69: "VCF Env Sust Curve",
-            70: "VCF Env Rel Curve",
-            71: "Mod Env Atk",
-            72: "Mod Env Dec",
-            73: "Mod Env Sust",
-            74: "Mod Env Rel",
-            75: "Mod Env Trig Mode",
-            76: "Mod Env Atk Curve",
-            77: "Mod Env Dec Curve",
-            78: "Mod Env Sust Curve",
-            79: "Mod Env Rel Curve",
-            80: "VCA Level",
-            81: "VCA Env Depth",
-            82: "VCA Env Velo Sens",
-            83: "VCA Pan Spread",
-            84: "Voice Priority Mode",
-            85: "Polyphony Mode",
-            86: "Env Trigger Mode",
-            87: "Unison Detune",
-            88: "Voice Drift",
-            89: "Parameter Drift",
-            90: "Drift Rate",
-            91: "OSC Porta Balance",
-            92: "OSC Key Reset",
-            93: "Mod1 Src",
-            94: "Mod1 Dest",
-            95: "Mod1 Depth",
-            96: "Mod2 Src",
-            97: "Mod2 Dest",
-            98: "Mod2 Depth",
-            99: "Mod3 Src",
-            100: "Mod3 Dest",
-            101: "Mod3 Depth",
-            102: "Mod4 Src",
-            103: "Mod4 Dest",
-            104: "Mod4 Depth",
-            105: "Mod5 Src",
-            106: "Mod5 Dest",
-            107: "Mod5 Depth",
-            108: "Mod6 Src",
-            109: "Mod6 Dest",
-            110: "Mod6 Depth",
-            111: "Mod7 Src",
-            112: "Mod7 Dest",
-            113: "Mod7 Depth",
-            114: "Mod8 Src",
-            115: "Mod8 Dest",
-            116: "Mod8 Depth",
-            117: "Ctrl Seq Enable",
-            118: "Ctrl Seq Clock",
-            119: "Sequence Length",
-            120: "Sequencer Swing",
-            121: "Key Sync & Loop",
-            122: "Slew",
-            123: "Seq Step 1",
-            124: "Seq Step 2",
-            125: "Seq Step 3",
-            126: "Seq Step 4",
-            127: "Seq Step 5",
-            128: "Seq Step 6",
-            129: "Seq Step 7",
-            130: "Seq Step 8",
-            131: "Seq Step 9",
-            132: "Seq Step 10",
-            133: "Seq Step 11",
-            134: "Seq Step 12",
-            135: "Seq Step 13",
-            136: "Seq Step 14",
-            137: "Seq Step 15",
-            138: "Seq Step 16",
-            139: "Seq Step 17",
-            140: "Seq Step 18",
-            141: "Seq Step 19",
-            142: "Seq Step 20",
-            143: "Seq Step 21",
-            144: "Seq Step 22",
-            145: "Seq Step 23",
-            146: "Seq Step 24",
-            147: "Seq Step 25",
-            148: "Seq Step 26",
-            149: "Seq Step 27",
-            150: "Seq Step 28",
-            151: "Seq Step 29",
-            152: "Seq Step 30",
-            153: "Seq Step 31",
-            154: "Seq Step 32",
-            155: "Arp On/Off",
-            156: "Arp Mode",
-            157: "Arp Rate",
-            158: "Arp Clock",
-            159: "Arp Key Sync",
-            160: "Arp Gate",
-            161: "Arp Hold",
-            162: "Arp Pattern",
-            163: "Arp Swing",
-            164: "Arp Octaves",
-            165: "FX Routing",
-            166: "FX1 Type",
-            167: "FX1 Param 1",
-            168: "FX1 Param 2",
-            169: "FX1 Param 3",
-            170: "FX1 Param 4",
-            171: "FX1 Param 5",
-            172: "FX1 Param 6",
-            173: "FX1 Param 7",
-            174: "FX1 Param 8",
-            175: "FX1 Param 9",
-            176: "FX1 Param 10",
-            177: "FX1 Param 11",
-            178: "FX1 Param 12",
-            179: "FX2 Type",
-            180: "FX2 Param 1",
-            181: "FX2 Param 2",
-            182: "FX2 Param 3",
-            183: "FX2 Param 4",
-            184: "FX2 Param 5",
-            185: "FX2 Param 6",
-            186: "FX2 Param 7",
-            187: "FX2 Param 8",
-            188: "FX2 Param 9",
-            189: "FX2 Param 10",
-            190: "FX2 Param 11",
-            191: "FX2 Param 12",
-            192: "FX3 Type",
-            193: "FX3 Param 1",
-            194: "FX3 Param 2",
-            195: "FX3 Param 3",
-            196: "FX3 Param 4",
-            197: "FX3 Param 5",
-            198: "FX3 Param 6",
-            199: "FX3 Param 7",
-            200: "FX3 Param 8",
-            201: "FX3 Param 9",
-            202: "FX3 Param 10",
-            203: "FX3 Param 11",
-            204: "FX3 Param 12",
-            205: "FX4 Type",
-            206: "FX4 Param 1",
-            207: "FX4 Param 2",
-            208: "FX4 Param 3",
-            209: "FX4 Param 4",
-            210: "FX4 Param 5",
-            211: "FX4 Param 6",
-            212: "FX4 Param 7",
-            213: "FX4 Param 8",
-            214: "FX4 Param 9",
-            215: "FX4 Param 10",
-            216: "FX4 Param 11",
-            217: "FX4 Param 12",
-            218: "FX1 Gain",
-            219: "FX2 Gain",
-            220: "FX3 Gain",
-            221: "FX4 Gain",
-            222: "FX Mode",
+            0: "LFO1 Rate",  # 255
+            1: "LFO1 Delay",  # 255
+            2: "LFO1 Shape",  # 6
+            3: "LFO1 Key Sync",  # 1
+            4: "LFO1 Arp Sync",  # 1
+            5: "LFO1 Mono Mode",  # 1
+            6: "LFO1 Slew",  # 255
+            7: "LFO2 Rate",  # 255
+            8: "LFO2 Delay",  # 255
+            9: "LFO2 Shape",  # 6
+            10: "LFO2 Key Sync",  # 1
+            11: "LFO2 Arp Sync",  # 1
+            12: "LFO2 Mono Mode",  # 255
+            13: "LFO2 Slew",  # 255
+            14: "OSC1 Range",  # 2
+            15: "OSC2 Range",  # 2
+            16: "OSC1 PWM Src",  # 5
+            17: "OSC2 TM Src",  # 5
+            18: "OSC1 Pulse",  # 1
+            19: "OSC1 Saw",  # 1
+            20: "OSC Sync",  # 1
+            21: "OSC1 PM Depth",  # 255
+            22: "OSC1 PM Select",  # 6
+            23: "OSC1 ATouch>PM Depth",  # 255
+            24: "OSC1 MW>PM Depth",  # 255
+            25: "OSC1 PWM Depth",  # 255
+            26: "OSC2 Level",  # 255
+            27: "OSC2 Pitch",  # 255
+            28: "OSC2 TM Depth",  # 255
+            29: "OSC2 PM Depth",  # 255
+            30: "OSC2 ATouch>PM Depth",  # 255
+            31: "OSC2 MW>PM Depth",  # 255
+            32: "OSC2 PM Select",  # 6
+            33: "Noise Level",  # 255
+            34: "Porta Time",  # 255
+            35: "Porta Mode",  # 13
+            36: "PB+ Depth",  # 24
+            37: "PB- Depth",  # 24
+            38: "OSC1 PM Mode",  # 1
+            39: "VCF Freq",  # 255
+            40: "VCF HPF",  # 255
+            41: "VCF Reso",  # 255
+            42: "VCF Env Depth",  # 255
+            43: "VCF Env Velo Sens",  # 255
+            44: "VCF PB>Freq Depth",  # 255
+            45: "VCF LFO Depth",  # 255
+            46: "VCF LFO Select",  # 1
+            47: "VCF ATouch>LFO Depth",  # 255
+            48: "VCF MW>LFO Depth",  # 255
+            49: "VCF Keytrack",  # 255
+            50: "VCF Env Polarity",  # 1
+            51: "VCF 2 Pole",  # 1
+            52: "VCF Boost",  # 1
+            53: "VCA Env Atk",  # 255
+            54: "VCA Env Dec",  # 255
+            55: "VCA Env Sust",  # 255
+            56: "VCA Env Rel",  # 255
+            57: "VCA Env Trig Mode",  # 4
+            58: "VCA Env Atk Curve",  # 255
+            59: "VCA Env Dec Curve",  # 255
+            60: "VCA Env Sust Curve",  # 255
+            61: "VCA Env Rrel Curve",  # 255
+            62: "VCF Env Atk",  # 255
+            63: "VCF Env Dec",  # 255
+            64: "VCF Env Sust",  # 255
+            65: "VCF Env Rel",  # 255
+            66: "VCF Env Trig Mode",  # 4,
+            67: "VCF Env Atk Curve",  # 255
+            68: "VCF Env Dec Curve",  # 255
+            69: "VCF Env Sust Curve",  # 255
+            70: "VCF Env Rel Curve",  # 255
+            71: "Mod Env Atk",  # 255
+            72: "Mod Env Dec",  # 255
+            73: "Mod Env Sust",  # 255
+            74: "Mod Env Rel",  # 255
+            75: "Mod Env Trig Mode",  # 4
+            76: "Mod Env Atk Curve",  # 255
+            77: "Mod Env Dec Curve",  # 255
+            78: "Mod Env Sust Curve",  # 255
+            79: "Mod Env Rel Curve",  # 255
+            80: "VCA Level",  # 255
+            81: "VCA Env Depth",  # 255
+            82: "VCA Env Velo Sens",  # 255
+            83: "VCA Pan Spread",  # 255
+            84: "Voice Priority Mode",  # 2
+            85: "Polyphony Mode",  # 12
+            86: "Env Trigger Mode",  # 3
+            87: "Unison Detune",  # 255
+            88: "Voice Drift",  # 255
+            89: "Parameter Drift",  # 255
+            90: "Drift Rate",  # 255
+            91: "OSC Porta Balance",  # 255
+            92: "OSC Key Reset",  # 1
+            93: "Mod1 Src",  # 22
+            94: "Mod1 Dest",  # 129
+            95: "Mod1 Depth",  # 255
+            96: "Mod2 Src",  # 22
+            97: "Mod2 Dest",  # 129
+            98: "Mod2 Depth",  # 255
+            99: "Mod3 Src",  # 22
+            100: "Mod3 Dest",  # 129
+            101: "Mod3 Depth",  # 255
+            102: "Mod4 Src",  # 22
+            103: "Mod4 Dest",  # 129
+            104: "Mod4 Depth",  # 255
+            105: "Mod5 Src",  # 22
+            106: "Mod5 Dest",  # 129
+            107: "Mod5 Depth",  # 255
+            108: "Mod6 Src",  # 22
+            109: "Mod6 Dest",  # 129
+            110: "Mod6 Depth",  # 255
+            111: "Mod7 Src",  # 22
+            112: "Mod7 Dest",  # 129
+            113: "Mod7 Depth",  # 255
+            114: "Mod8 Src",  # 22
+            115: "Mod8 Dest",  # 129
+            116: "Mod8 Depth",  # 255
+            117: "Ctrl Seq Enable",  # 1
+            118: "Ctrl Seq Clock",  # 15
+            119: "Sequence Length",  # 31
+            120: "Sequencer Swing",  # 25
+            121: "Key Sync & Loop",  # 2
+            122: "Slew",  # 255
+            123: "Seq Step 1",  # 255
+            124: "Seq Step 2",  # 255
+            125: "Seq Step 3",  # 255
+            126: "Seq Step 4",  # 255
+            127: "Seq Step 5",  # 255
+            128: "Seq Step 6",  # 255
+            129: "Seq Step 7",  # 255
+            130: "Seq Step 8",  # 255
+            131: "Seq Step 9",  # 255
+            132: "Seq Step 10",  # 255
+            133: "Seq Step 11",  # 255
+            134: "Seq Step 12",  # 255
+            135: "Seq Step 13",  # 255
+            136: "Seq Step 14",  # 255
+            137: "Seq Step 15",  # 255
+            138: "Seq Step 16",  # 255
+            139: "Seq Step 17",  # 255
+            140: "Seq Step 18",  # 255
+            141: "Seq Step 19",  # 255
+            142: "Seq Step 20",  # 255
+            143: "Seq Step 21",  # 255
+            144: "Seq Step 22",  # 255
+            145: "Seq Step 23",  # 255
+            146: "Seq Step 24",  # 255
+            147: "Seq Step 25",  # 255
+            148: "Seq Step 26",  # 255
+            149: "Seq Step 27",  # 255
+            150: "Seq Step 28",  # 255
+            151: "Seq Step 29",  # 255
+            152: "Seq Step 30",  # 255
+            153: "Seq Step 31",  # 255
+            154: "Seq Step 32",  # 255
+            155: "Arp On/Off",  # 1
+            156: "Arp Mode",  # 10
+            157: "Arp Rate",  # 255
+            158: "Arp Clock",  # 12
+            159: "Arp Key Sync",  # 1
+            160: "Arp Gate",  # 255
+            161: "Arp Hold",  # 1
+            162: "Arp Pattern",  # 64
+            163: "Arp Swing",  # 25
+            164: "Arp Octaves",  # 5
+            165: "FX Routing",  # 9
+            166: "FX1 Type",  # 33
+            167: "FX1 Param 1",  # 255
+            168: "FX1 Param 2",  # 255
+            169: "FX1 Param 3",  # 255
+            170: "FX1 Param 4",  # 255
+            171: "FX1 Param 5",  # 255
+            172: "FX1 Param 6",  # 255
+            173: "FX1 Param 7",  # 255
+            174: "FX1 Param 8",  # 255
+            175: "FX1 Param 9",  # 255
+            176: "FX1 Param 10",  # 255
+            177: "FX1 Param 11",  # 255
+            178: "FX1 Param 12",  # 255
+            179: "FX2 Type",  # 33
+            180: "FX2 Param 1",  # 255
+            181: "FX2 Param 2",  # 255
+            182: "FX2 Param 3",  # 255
+            183: "FX2 Param 4",  # 255
+            184: "FX2 Param 5",  # 255
+            185: "FX2 Param 6",  # 255
+            186: "FX2 Param 7",  # 255
+            187: "FX2 Param 8",  # 255
+            188: "FX2 Param 9",  # 255
+            189: "FX2 Param 10",  # 255
+            190: "FX2 Param 11",  # 255
+            191: "FX2 Param 12",  # 255
+            192: "FX3 Type",  # 33
+            193: "FX3 Param 1",  # 255
+            194: "FX3 Param 2",  # 255
+            195: "FX3 Param 3",  # 255
+            196: "FX3 Param 4",  # 255
+            197: "FX3 Param 5",  # 255
+            198: "FX3 Param 6",  # 255
+            199: "FX3 Param 7",  # 255
+            200: "FX3 Param 8",  # 255
+            201: "FX3 Param 9",  # 255
+            202: "FX3 Param 10",  # 255
+            203: "FX3 Param 11",  # 255
+            204: "FX3 Param 12",  # 255
+            205: "FX4 Type",  # 33
+            206: "FX4 Param 1",  # 255
+            207: "FX4 Param 2",  # 255
+            208: "FX4 Param 3",  # 255
+            209: "FX4 Param 4",  # 255
+            210: "FX4 Param 5",  # 255
+            211: "FX4 Param 6",  # 255
+            212: "FX4 Param 7",  # 255
+            213: "FX4 Param 8",  # 255
+            214: "FX4 Param 9",  # 255
+            215: "FX4 Param 10",  # 255
+            216: "FX4 Param 11",  # 255
+            217: "FX4 Param 12",  # 255
+            218: "FX1 Gain",  # 150
+            219: "FX2 Gain",  # 0
+            220: "FX3 Gain",  # 0
+            221: "FX4 Gain",  # 150
+            222: "FX Mode",  # 2
         }
 
     # Creates the "Randomize" tab, containing the main randomization controls
@@ -1024,7 +1046,7 @@ class DeepMindRandomizer(tk.Tk):
                 col = i % num_cols
 
                 # Initialize checkbox: True (randomize) unless in the default skip list
-                should_skip = param in [36, 37, 40, 43, 80, 82]
+                should_skip = param in [36, 37, 40, 43, 80, 82, 219, 220]
                 self.skip_params[param].set(not should_skip)
 
                 cb = ttk.Checkbutton(
